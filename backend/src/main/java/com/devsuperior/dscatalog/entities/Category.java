@@ -2,20 +2,31 @@ package com.devsuperior.dscatalog.entities;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_category")
 public class Category implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String nome;
+	private String name;
 	
+
 	public Category() {
 		
 	}
 
-	public Category(Long id, String nome) {
+	public Category(Long id, String name) {
 		super();
 		this.id = id;
-		this.nome = nome;
+		this.name = name;
 	}
 
 	public Long getId() {
@@ -27,11 +38,11 @@ public class Category implements Serializable{
 	}
 
 	public String getNome() {
-		return nome;
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNome(String name) {
+		this.name = name;
 	}
 
 	@Override
